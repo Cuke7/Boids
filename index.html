@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="apple-touch-icon" href="/images/apple_own_image.png"> <!-- we love you apple-->
+    <!-- <link rel="icon" type="image/png" href="images/app_icon.png" /> -->
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#3367D6" />
+    <title>Boids 🐦</title>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+
+            <!-- TOP APP BAR -->
+            <v-app-bar app color="primary">
+                <v-toolbar-title class="white--text">Boids 🐦</v-toolbar-title>
+            </v-app-bar>
+
+            <!-- MAIN CONTENT -->
+            <v-main>
+                <v-row>
+                    <v-col cols="8" class="pt-12 pl-12 text-center">
+                        <div id="sketch-holder"></div>
+                    </v-col>
+                    <v-col cols="4" class="pa-12" align="center">
+                        <v-card class="pa-3">
+                            <div>
+                                Alignement
+                            </div>
+                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="alignement" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1"
+                                :min="0" :max=3>
+                            </v-slider>
+                            <div>
+                                Cohesion
+                            </div>
+                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="cohesion" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1"
+                                :min="0" :max=2>
+                            </v-slider>
+                            <div>
+                                Separation
+                            </div>
+                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="separation" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1"
+                                :min="0" :max=3>
+                            </v-slider>
+                            <div>
+                                Vision radius
+                            </div>
+                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="vision" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="5" :min="0"
+                                :max=100>
+                            </v-slider>
+                            <v-btn color="primary" class="my-4" @click="reset_forces()">
+                                Reset parameters
+                            </v-btn>
+                            <div></div>
+                        </v-card>
+                    </v-col>
+                </v-row>
+
+            </v-main>
+        </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.0/lib/p5.js"></script>
+    <script src="boid.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
