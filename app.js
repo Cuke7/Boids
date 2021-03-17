@@ -22,7 +22,7 @@ let vue = new Vue({
         alignement: 1.2,
         cohesion: 0.8,
         separation: 1.2,
-        vision: 50,
+        vision: 80,
         angle: 250,
         boids: [],
     }),
@@ -31,7 +31,7 @@ let vue = new Vue({
             this.alignement = 1.2;
             this.cohesion = 0.8;
             this.separation = 1.2;
-            this.vision = 50;
+            this.vision = 80;
             this.angle = 250;
         },
         restart_simulation() {
