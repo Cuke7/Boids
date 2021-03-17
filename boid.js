@@ -100,6 +100,10 @@ class Boid {
         this.acceleration.add(alignment);
         this.acceleration.add(cohesion);
         this.acceleration.add(separation);
+
+        if (this.index == 0 && vue.show_test) drawArrow(this.position, alignment.mult(200), "blue");
+        if (this.index == 0 && vue.show_test) drawArrow(this.position, cohesion.mult(200), "green");
+        if (this.index == 0 && vue.show_test) drawArrow(this.position, separation.mult(200), "red");
     }
 
     update() {

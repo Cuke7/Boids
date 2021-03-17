@@ -31,33 +31,31 @@
                         <div id="sketch-holder"></div>
                     </v-col>
                     <v-col cols="4" class="pa-12" align="center">
-                        <v-card class="pa-3">
-                            <div>
-                                <v-switch v-model="show_test" label="Show test subject" class="ml-6"></v-switch>
-                            </div>
+                        <v-card class="pa-4">
+                            <v-switch v-model="show_test" label="Show test subject" class="ml-6"></v-switch>
 
-                            <div>
+                            <div class="blue">
                                 Alignement
                             </div>
                             <v-slider hide-details class="my-0 pa-0" v-model.lazy="alignement" thumb-label
                                 color="secondary" track-color="primary" track-fill-color="secondary" step="0.1" :min="0"
                                 :max=3>
                             </v-slider>
-                            <div>
+                            <div class="green">
                                 Cohesion
                             </div>
                             <v-slider hide-details class="my-0 pa-0" v-model.lazy="cohesion" thumb-label
                                 color="secondary" track-color="primary" track-fill-color="secondary" step="0.1" :min="0"
                                 :max=2>
                             </v-slider>
-                            <div>
+                            <div class="red">
                                 Separation
                             </div>
                             <v-slider hide-details class="my-0 pa-0" v-model.lazy="separation" thumb-label
                                 color="secondary" track-color="primary" track-fill-color="secondary" step="0.1" :min="0"
                                 :max=3>
                             </v-slider>
-                            <div>
+                            <div class="mt-6">
                                 Perception radius
                             </div>
                             <v-slider hide-details class="my-0 pa-0" v-model.lazy="vision" thumb-label color="secondary"
@@ -69,28 +67,31 @@
                             <v-slider hide-details class="my-0 pa-0" v-model.lazy="angle" thumb-label color="secondary"
                                 track-color="primary" track-fill-color="secondary" step="5" :min="0" :max=360>
                             </v-slider>
-                            <v-btn color="primary" class="my-4" @click="reset_parameters()">
-                                Reset parameters
-                            </v-btn>
-                            <div></div>
-                            <v-btn color="primary" class="my-4" @click="restart_simulation()">
-                                Restart simulation
-                            </v-btn>
-                            <div>
-                                Number of boids (current: {{boids_number}})
-                            </div>
-                            <v-btn color="primary" class="my-4" @click="boids_number = 50; restart_simulation()">
-                                50
-                            </v-btn>
-                            <v-btn color="primary" class="my-4" @click="boids_number = 100;  restart_simulation()">
-                                100
-                            </v-btn>
-                            <!--<v-btn color="primary" class="my-4" @click="boids_number = 150;  restart_simulation()">
-                                150
-                            </v-btn>
-                            <v-btn color="primary" class="my-4" @click="boids_number = 200;  restart_simulation()">
-                                200
-                            </v-btn>-->
+                            <v-row>
+                                <v-col align="center">
+                                    <v-btn color="primary" class="mt-4 mb-2" @click="reset_parameters()">
+                                        Reset parameters
+                                    </v-btn>
+                                    <div></div>
+                                    <v-btn color="primary" class="mb-4" @click="restart_simulation()">
+                                        Restart simulation
+                                    </v-btn>
+                                </v-col>
+                                <v-col align="center">
+                                    <div>
+                                        Number of boids (current: {{boids_number}})
+                                    </div>
+                                    <v-btn color="primary" class="my-4"
+                                        @click="boids_number = 50; restart_simulation()">
+                                        50
+                                    </v-btn>
+                                    <v-btn color="primary" class="my-4"
+                                        @click="boids_number = 100;  restart_simulation()">
+                                        100
+                                    </v-btn>
+                                </v-col>
+                            </v-row>
+
                         </v-card>
                     </v-col>
                 </v-row>
