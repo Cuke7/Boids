@@ -35,35 +35,44 @@
                             <div>
                                 Alignement
                             </div>
-                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="alignement" thumb-label
-                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1"
-                                :min="0" :max=3>
+                            <v-slider hide-details class="my-0 pa-0" v-model.lazy="alignement" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1" :min="0"
+                                :max=3>
                             </v-slider>
                             <div>
                                 Cohesion
                             </div>
-                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="cohesion" thumb-label
-                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1"
-                                :min="0" :max=2>
+                            <v-slider hide-details class="my-0 pa-0" v-model.lazy="cohesion" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1" :min="0"
+                                :max=2>
                             </v-slider>
                             <div>
                                 Separation
                             </div>
-                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="separation" thumb-label
-                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1"
-                                :min="0" :max=3>
+                            <v-slider hide-details class="my-0 pa-0" v-model.lazy="separation" thumb-label
+                                color="secondary" track-color="primary" track-fill-color="secondary" step="0.1" :min="0"
+                                :max=3>
                             </v-slider>
                             <div>
-                                Vision radius
+                                Perception radius
                             </div>
-                            <v-slider hide-details ref="toto" class="my-0 pa-0" v-model.lazy="vision" thumb-label
-                                color="secondary" track-color="primary" track-fill-color="secondary" step="5" :min="0"
-                                :max=100>
+                            <v-slider hide-details class="my-0 pa-0" v-model.lazy="vision" thumb-label color="secondary"
+                                track-color="primary" track-fill-color="secondary" step="5" :min="0" :max=100>
                             </v-slider>
-                            <v-btn color="primary" class="my-4" @click="reset_forces()">
+                            <div>
+                                Perception angle
+                            </div>
+                            <v-slider hide-details class="my-0 pa-0" v-model.lazy="angle" thumb-label color="secondary"
+                                track-color="primary" track-fill-color="secondary" step="5" :min="0" :max=360>
+                            </v-slider>
+                            <v-btn color="primary" class="my-4" @click="reset_parameters()">
                                 Reset parameters
                             </v-btn>
                             <div></div>
+                            <v-btn color="primary" class="my-4" @click="restart_simulation()">
+                                Restart simulation
+                            </v-btn>
+
                         </v-card>
                     </v-col>
                 </v-row>

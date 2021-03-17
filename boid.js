@@ -14,7 +14,7 @@ class Boid {
         this.maxSpeed = 5;
 
         this.ref = createVector(1, 0);
-        this.perceptionAngle = 250;
+        this.perceptionAngle = vue.angle;
         this.perceptionRadius = vue.vision;
         this.index = index;
     }
@@ -42,11 +42,11 @@ class Boid {
         for (let other of boids) {
             let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
 
-            if (other != this && d < this.perceptionRadius) {
+            if (other != this && d < vue.vision) {
                 let v1 = p5.Vector.sub(other.position, this.position);
                 let angle = (this.velocity.angleBetween(v1) * 180) / PI;
 
-                if (Math.abs(angle) < this.perceptionAngle / 2) {
+                if (Math.abs(angle) < vue.angle / 2) {
                     //align
                     align_steering.add(other.velocity);
 
@@ -120,7 +120,7 @@ class Boid {
         //strokeWeight(1);
         if (this.index == 0) {
             fill("rgba(255,255,255, 0.25)");
-            arc(0, 0, this.perceptionRadius * 2, this.perceptionRadius * 2, (-(this.perceptionAngle / 2) * PI) / 180, ((this.perceptionAngle / 2) * PI) / 180);
+            arc(0, 0, vue.vision * 2, vue.vision * 2, (-(vue.angle / 2) * PI) / 180, ((vue.angle / 2) * PI) / 180);
         }
 
         pop();

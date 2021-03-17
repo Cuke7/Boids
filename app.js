@@ -1,5 +1,3 @@
-const flock = [];
-
 // Init vue
 let vue = new Vue({
     el: "#app",
@@ -25,13 +23,22 @@ let vue = new Vue({
         cohesion: 0.8,
         separation: 1.2,
         vision: 50,
+        angle: 250,
+        boids: [],
     }),
     methods: {
-        reset_forces() {
+        reset_parameters() {
             this.alignement = 1.2;
             this.cohesion = 0.8;
             this.separation = 1.2;
             this.vision = 50;
+            this.angle = 250;
+        },
+        restart_simulation() {
+            this.boids = [];
+            for (let i = 0; i < 50; i++) {
+                this.boids.push(new Boid(i));
+            }
         },
     },
 });
@@ -45,19 +52,17 @@ function setup() {
 
     cnv.parent("sketch-holder");
 
-    for (let i = 0; i < 50; i++) {
-        flock.push(new Boid(i));
-    }
+    vue.restart_simulation();
 }
 
 function draw() {
     background(0);
-    for (let boid of flock) {
+    for (let boid of vue.boids) {
         boid.edges();
-        boid.flock(flock);
+        boid.flock(vue.boids);
     }
 
-    for (const boid of flock) {
+    for (const boid of vue.boids) {
         boid.update();
         boid.show();
     }
