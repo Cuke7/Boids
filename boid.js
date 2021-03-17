@@ -114,11 +114,11 @@ class Boid {
         push();
         translate(this.position.x, this.position.y);
         rotate(this.ref.angleBetween(this.velocity));
-        triangle(0, 5, 0, -5, 15, 0);
+        triangle(0, 3, 0, -3, 10, 0);
         //stroke(255);
         //noFill();
         //strokeWeight(1);
-        if (this.index == 0) {
+        if (this.index == 0 && vue.show_test) {
             fill("rgba(255,255,255, 0.25)");
             arc(0, 0, vue.vision * 2, vue.vision * 2, (-(vue.angle / 2) * PI) / 180, ((vue.angle / 2) * PI) / 180);
         }

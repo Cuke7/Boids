@@ -25,6 +25,8 @@ let vue = new Vue({
         vision: 80,
         angle: 250,
         boids: [],
+        boids_number: 50,
+        show_test: true,
     }),
     methods: {
         reset_parameters() {
@@ -36,7 +38,7 @@ let vue = new Vue({
         },
         restart_simulation() {
             this.boids = [];
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < this.boids_number; i++) {
                 this.boids.push(new Boid(i));
             }
         },

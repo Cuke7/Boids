@@ -33,6 +33,10 @@
                     <v-col cols="4" class="pa-12" align="center">
                         <v-card class="pa-3">
                             <div>
+                                <v-switch v-model="show_test" label="Show test subject" class="ml-6"></v-switch>
+                            </div>
+
+                            <div>
                                 Alignement
                             </div>
                             <v-slider hide-details class="my-0 pa-0" v-model.lazy="alignement" thumb-label
@@ -72,7 +76,21 @@
                             <v-btn color="primary" class="my-4" @click="restart_simulation()">
                                 Restart simulation
                             </v-btn>
-
+                            <div>
+                                Number of boids (current: {{boids_number}})
+                            </div>
+                            <v-btn color="primary" class="my-4" @click="boids_number = 50; restart_simulation()">
+                                50
+                            </v-btn>
+                            <v-btn color="primary" class="my-4" @click="boids_number = 100;  restart_simulation()">
+                                100
+                            </v-btn>
+                            <!--<v-btn color="primary" class="my-4" @click="boids_number = 150;  restart_simulation()">
+                                150
+                            </v-btn>
+                            <v-btn color="primary" class="my-4" @click="boids_number = 200;  restart_simulation()">
+                                200
+                            </v-btn>-->
                         </v-card>
                     </v-col>
                 </v-row>
